@@ -40,7 +40,8 @@ class PageDaftar extends Controller
             'nama' => $request->nama,
             'email' => $request->email,
             'no_telepon' => $request->no_telepon,
-            'password' => $request->password
+            'password' => $request->password,
+            'konfirpass'=> $request->konfirpass,
         ]);
 
         return redirect('/login');

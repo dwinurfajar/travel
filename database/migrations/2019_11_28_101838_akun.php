@@ -20,6 +20,7 @@ class Akun extends Migration
             $table->string('email')->unique();
             $table->char('no_telepon', 13)->unique();
             $table->string('password');
+            $table->string('konfirpass');
             $table->rememberToken();
             $table->timestamps();
         });
