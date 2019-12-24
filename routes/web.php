@@ -27,8 +27,8 @@
 
 Route::get('/', 'PageController@index');
 
-Route::get('/login', 'PageLogin@login');
+//Route::get('/login', 'PageLogin@login');
 
-Route::get('/daftar', 'PageDaftar@index');
-Route::get('/daftar', 'PageDaftar@create');
-Route::post('/daftar', "PageDaftar@store");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
