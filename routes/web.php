@@ -29,6 +29,8 @@ Route::get('/', 'PageController@index');
 
 //Route::get('/login', 'PageLogin@login');
 
+Route::get('/pemesanan', 'PemesananController@create');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
