@@ -30,6 +30,10 @@ Route::get('/', 'PageController@index');
 //Route::get('/login', 'PageLogin@login');
 
 Route::get('/pemesanan', 'PemesananController@create');
+Route::post('/pemesanan/store', 'PemesananController@store');
+
+Route::get('/detail', 'PemesananController@index');
+
 
 Auth::routes();
 

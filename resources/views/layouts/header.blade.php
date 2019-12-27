@@ -56,7 +56,7 @@
 								 aria-expanded="false">Pemesanan</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{url('/pemesanan')}}">Pemesanan</a></li>
-									<li class="nav-item"><a class="nav-link" href="single-product.html">Detail Bis</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url('/detail')}}">Detail Pesanan</a></li>
 									<li class="nav-item"><a class="nav-link" href="confirmation.html">Pembayaran</a></li>
 								</ul>
 							</li>
@@ -64,11 +64,11 @@
 							<li>
 							@guest
 									<li class="nav-item">
-										<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+										<a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
 									</li>
 									@if (Route::has('register'))
 										<li class="nav-item">
-											<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+											<a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
 										</li>
 									@endif
 								@else
