@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 use App\pemesanan;
+use App\User;
 
 class PemesananController extends Controller
 {
@@ -18,8 +21,10 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        $detail = \App\pemesanan::all();
-        return view ('/detail', ['detail'=> $detail]);
+        //$detail = \App\pemesanan::all();
+        Auth::user();
+        $detail = \App\pemesanan::get()->where('id_user', Auth::user()->id);
+        return view('/detail', ['detail'=> $detail]);
     }
 
     /**
@@ -40,15 +45,37 @@ class PemesananController extends Controller
      */
     public function store(Request $request)
     {
+        
+        Auth::user();
+        $array = ['1A', '1B', '1C', '1D', '1E',
+                  '2A', '2B', '2C', '2D', '2E',
+                  '3A', '3B', '3C', '3D', '3E',
+                  '4A', '4B', '4C', '4D', '4E',
+                  '5A', '5B', '5C', '5D', '5E',
+                  '6A', '6B', '6C', '6D', '6E',];
+
+        $rand = "";        
+        for($i=0; $i < $request->jumlah; $i++) { 
+
+            $last = Arr::random($array);
+            $rand .= " ".$last;
+        }
+
+        
         $pemesanan = new pemesanan;
+
+        $pemesanan->id_user = Auth::user()->id;
         $pemesanan->kelas = $request->kelas;
         $pemesanan->asal = $request->asal;
         $pemesanan->tujuan = $request->tujuan;
+        $pemesanan->jam = $request->jam;
         $pemesanan->no_telepon = $request->no_telepon;
         $pemesanan->tanggal = $request->tanggal;
+        $pemesanan->no_kursi = $rand;
+        $pemesanan->total = $request->total;
         $pemesanan->save();
 
-        return redirect('/');
+        return redirect('/detail');
     }
 
     /**
@@ -59,7 +86,8 @@ class PemesananController extends Controller
      */
     public function show($id)
     {
-       //
+        Auth::user();
+       $detail = DB::table('pemesanans')->where('id_user', Auth::user()->id);
     }
 
     /**

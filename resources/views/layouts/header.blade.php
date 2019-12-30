@@ -108,10 +108,11 @@
 		</div>
 	</header>
 	<!-- End Header Area -->
-
+	@stack('head')
 	<!-- start banner Area -->
 	@yield('container')
 	<!-- End banner Area -->
+	
 
 
 	<script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -129,6 +130,10 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
+	<!-- <script src="js/total.js"></script> -->
+	
+
+
 </body>
 
 </html>

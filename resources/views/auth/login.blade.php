@@ -42,10 +42,14 @@
                                     </a>
                                 @endif
 							</div>
+
 						</form>
-						<form class="row login_form" action="daftar" id="contactForm" novalidate="novalidate">
-						<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">daftar</button>
+						<form class="row login_form" action="/register" id="contactForm" novalidate="novalidate">
+							<div class="col-md-12 form-group">
+								@if (Route::has('register'))
+									<button type="submit" href="{{ route('register') }}" value="submit" class="primary-btn">{{ __('Registrasi') }}</button>
+								@endif
+							</div>
 						</form>	
 					</div>
 				</div>

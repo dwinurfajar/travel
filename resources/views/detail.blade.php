@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title', 'detail')
+@section('title', 'Detail')
 
 @section('container')
 <div class="container">
@@ -8,15 +8,19 @@
 					<div class="login_form_inner">
 						<h3 class="mt-5">Detail Tiket</h3>
 						<table class="table">
-							<caption>detail pesanan</caption>
+							<caption>Detail Tiket</caption>
 							<thead>
 								<tr>
 								<th scope="col">#</th>
-								<th scope="col">kelas</th>
-								<th scope="col">asal</th>
-								<th scope="col">tujuan</th>
-								<th scope="col">no telepon</th>
+								<th scope="col">Kelas</th>
+								<th scope="col">Asal</th>
+								<th scope="col">Tujuan</th>
 								<th scope="col">Tanggal</th>
+								<th scope="col">Jam</th>
+								<th scope="col">No Kursi</th>
+								<th scope="col">No Telepon</th>
+								<th scope="col">Total (Rp)</th>
+								
 								</tr>
 							</thead>
 							<tbody>
@@ -26,8 +30,11 @@
 									<td>{{ $dtl->kelas}}</td>
 									<td>{{ $dtl->asal}}</td>
 									<td>{{ $dtl->tujuan}}</td>
-									<td>{{ $dtl->no_telepon}}</td>
 									<td>{{ $dtl->tanggal}}</td>
+									<td>{{ $dtl->jam}}</td>
+									<td>{{ $dtl->no_kursi}}</td>
+									<td>{{ $dtl->no_telepon}}</td>
+									<td>{{ $dtl->total}}</td>
 									</tr>
 								@endforeach
 							</tbody>
